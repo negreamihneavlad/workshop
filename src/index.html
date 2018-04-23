@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="AppCtrl as app" prefix="og: http://ogp.me/ns#">
+<head>
+	<meta charset="utf-8"/>
+	<base href="/">
+	<title>Workshop</title>
+	<link type="image/png" href="assets/img/favicon.png"/>
+	<link href="assets/css/app.css" rel="stylesheet"/>
+	<script src="assets/js/frameworks.js"></script>
+	<script src="assets/js/templates.js"></script>
+	<script src="assets/js/app.js"></script>
+</head>
+<body>
+
+<!-- Main view -->
+<div class="view" ui-view autoscroll="true"></div>
+
+<!-- Page loading -->
+<div page-loading></div>
+</body>
+</html>

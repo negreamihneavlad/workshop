@@ -1,0 +1,31 @@
+// Container
+// ----------
+
+.container {
+  @include outer-container();
+
+  // Modifiers
+  // ----------
+
+  &--fullWidth {
+    max-width: calc(100% - 100px);
+  }
+}
+
+// Columns
+// --------
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include span-columns($i);
+  }
+}
+
+// Shifts
+// -------
+
+@for $i from 1 through $grid-columns - 1 {
+  .shift-#{$i} {
+    @include shift($i);
+  }
+}

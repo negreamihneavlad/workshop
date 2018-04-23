@@ -1,0 +1,28 @@
+<!-- Sidebar -->
+<div class="sidebar">
+
+  <!-- Content -->
+  <div class="sidebar-content">
+
+    <!-- Logo -->
+    <a class="sidebar-logo" ui-sref="home"></a>
+
+    <!-- Menu -->
+    <ul class="sidebar-menu sidebar-menu--transparent">
+      <li class="sidebar-menuItem" ng-class="{'is-active': sidebar.activeMenuItem == menuItem.name}" ng-repeat="menuItem in sidebar.menuItems">
+        <a class="sidebar-menuAnchor" ng-click="menuItem.ui.expanded = !menuItem.ui.expanded">
+          <span class="icon icon-{{ ::menuItem.icon }}"></span> {{ ::menuItem.title }}
+        </a>
+
+        <ul class="sidebar-menuItem-subitems" collapse="!menuItem.ui.expanded">
+          <li class="sidebar-menuItem-subitems-item" ng-repeat="subitem in menuItem.subitems">
+            <a ui-sref="{{ ::subitem.state }}" class="sidebar-menuItem-subitems-subitemAnchor"
+              ng-class="{'is-active': (sidebar.activeMenuItem == subitem.state || subitem.siblingState && subitem.siblingState.indexOf(sidebar.activeMenuItem) !== -1)}">
+              {{ subitem.title }}
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

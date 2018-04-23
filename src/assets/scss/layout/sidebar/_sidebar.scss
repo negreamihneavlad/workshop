@@ -1,0 +1,162 @@
+// Sidebar
+// --------
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #231f20;
+  @include linear-gradient(#231f20, #393536);
+  @include transition(width 0.28s ease-in-out);
+
+  // States
+  // -------
+
+  &.is-open {
+    width: 175px;
+  }
+
+  // Children
+  // ---------
+
+  &-content {
+    width: 175px;
+  }
+
+  &-logo {
+    display: block;
+    width: 146px;
+    height: 49px;
+    margin: 21px 14px 18px 2px;
+    background: url("../img/logo.png") no-repeat;
+    background-size: 146px 49px;
+  }
+
+  &-menu {
+    @extend %list-unstyled;
+    margin-bottom: 0;
+    background-color: rgba(#fff, 0.1);
+
+    // Modifiers
+    // ----------
+
+    &--transparent {
+      background-color: rgba(#fff, 0);
+    }
+
+    &--borderless {
+      // Children
+      // ---------
+
+      .sidebar-menuItem {
+        border: none;
+      }
+    }
+  }
+
+  &-menuItem {
+    border-bottom: 1px solid #444;
+
+    // States
+    // -------
+
+    &:hover {
+      background-color: rgba(#fff, 0.1);
+      color: #231f20;
+      @include transition(background-color 0.2s);
+    }
+
+    &.is-active {
+      background-color: #00d8ff;
+      border-bottom-color: transparent;
+    }
+
+    &-subitems {
+      overflow: hidden;
+      @extend %list-unstyled;
+      @include transition(height 0.3s ease-in-out);
+
+      // Children
+      // ---------
+
+      &-subitemAnchor {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        padding: 10px 20px 10px 60px;
+        vertical-align: top;
+        text-decoration: none;
+        letter-spacing: 1px;
+        font-weight: 300;
+        font-size: 13px;
+        color: #fff;
+
+        &.is-active {
+          color: $brand-primary;
+          opacity: 1;
+        }
+
+        // States
+        // -------
+
+        &:hover {
+          color: #231f20;
+          opacity: 1;
+        }
+      }
+
+      &-item:last-child {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &-menuAnchor {
+    position: relative;
+    display: block;
+    padding: 19px 20px 19px 60px;
+    vertical-align: top;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: $font-weight-light;
+    font-size: 16px;
+    color: #231f20;
+    // @extend %clearfix;
+
+    // States
+    // -------
+
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+    }
+
+    // Children
+    // ---------
+
+    > .icon {
+      display: block;
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: 18px;
+
+      &-icon1 {
+        width: 30px;
+        height: 30px;
+        background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNMCAzMnY0NDhoNDQ4VjMySDB6bTI0My44IDM0OS40YzAgNDMuNi0yNS42IDYzLjUtNjIuOSA2My41LTMzLjcgMC01My4yLTE3LjQtNjMuMi0zOC41bDM0LjMtMjAuN2M2LjYgMTEuNyAxMi42IDIxLjYgMjcuMSAyMS42IDEzLjggMCAyMi42LTUuNCAyMi42LTI2LjVWMjM3LjdoNDIuMXYxNDMuN3ptOTkuNiA2My41Yy0zOS4xIDAtNjQuNC0xOC42LTc2LjctNDNsMzQuMy0xOS44YzkgMTQuNyAyMC44IDI1LjYgNDEuNSAyNS42IDE3LjQgMCAyOC42LTguNyAyOC42LTIwLjggMC0xNC40LTExLjQtMTkuNS0zMC43LTI4bC0xMC41LTQuNWMtMzAuNC0xMi45LTUwLjUtMjkuMi01MC41LTYzLjUgMC0zMS42IDI0LjEtNTUuNiA2MS42LTU1LjYgMjYuOCAwIDQ2IDkuMyA1OS44IDMzLjdMMzY4IDI5MGMtNy4yLTEyLjktMTUtMTgtMjcuMS0xOC0xMi4zIDAtMjAuMSA3LjgtMjAuMSAxOCAwIDEyLjYgNy44IDE3LjcgMjUuOSAyNS42bDEwLjUgNC41YzM1LjggMTUuMyA1NS45IDMxIDU1LjkgNjYuMiAwIDM3LjgtMjkuOCA1OC42LTY5LjcgNTguNnoiLz48L3N2Zz4=")
+          no-repeat center center;
+      }
+    }
+  }
+
+  &-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 175px;
+  }
+}

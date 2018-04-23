@@ -1,0 +1,42 @@
+// Animations
+// -----------
+
+@include keyframes(fadeIn) {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@include keyframes(fadeOut) {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@include keyframes(zoomIn) {
+  0% {
+    @include transform(scale3d(0.9, 0.9, 0.9));
+  }
+
+  100% {
+    @include transform(none);
+  }
+}
+
+@include keyframes(zoomOut) {
+  0% {
+    @include transform(none);
+  }
+
+  100% {
+    @include transform(scale3d(0.9, 0.9, 0.9));
+  }
+}

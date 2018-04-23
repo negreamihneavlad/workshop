@@ -1,0 +1,20 @@
+// Header
+// -------
+
+.header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @extend %clearfix;
+
+  // Children
+  // ---------
+
+  &-title {
+    float: left;
+    margin: 0 20px 0 0;
+    line-height: 40px;
+    font-weight: $font-weight-medium;
+    font-size: 32px;
+    color: $gray-dark;
+  }
+}

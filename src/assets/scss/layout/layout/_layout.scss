@@ -1,0 +1,20 @@
+// View
+// -----
+
+.view--app {
+  padding-left: 60px;
+}
+
+// Content
+// --------
+
+.content {
+  @include transition(transform 0.3s ease-in-out);
+
+  // Modifiers
+  // ----------
+
+  .has-sidebarOpen & {
+    @include transform(translate3d(115px, 0, 0));
+  }
+}
